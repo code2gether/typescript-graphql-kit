@@ -1,0 +1,10 @@
+{
+  "name": "typescript-graphql-kit",
+  "version": "1.0.0",
+  "description": "🚀 Bootstrap your GraphQL server within seconds.",
+  "devDependencies": {
+    "@types/node": "^10.12.18",
+    "ts-node": "^7.0.1",
+    "typescript": "^3.2.2"
+  }
+}
