@@ -1,21 +1,23 @@
+// We keep this here
 import "reflect-metadata";
-import { createConnection } from "typeorm";
-import { User } from "./entity/User";
 
-// connection settings are in the "ormconfig.json" file
-createConnection()
-  .then(async connection => {
-    console.log("Inserting a new User into the database...");
-    const user = new User();
-    user.firstName = "Timber";
-    user.firstName = "Saw";
+import { GraphQLServer } from "graphql-yoga";
 
-    await connection.manager.save(user);
+// Basic typeDefinitions
+const typeDefs = `
+  type Query {
+    hello(name: String): String!
+  }
+`;
 
-    console.log("Saved a new user with id: " + user.id);
+//Basic Resolver
+const resolvers = {
+  Query: {
+    hello: () => "Hello World"
+  }
+};
 
-    console.log("Loading users from the database ...");
-    const users = connection.manager.find(User);
-    console.log("Loaded users: ", users);
-  })
-  .catch(error => console.log("Error: ", error));
+//Create new GraphQLServer
+const server = new GraphQLServer({ typeDefs, resolvers });
+
+server.start(() => console.log("Server is running on localhost:4000"));
