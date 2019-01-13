@@ -15,9 +15,14 @@ What's inside?
 
 Make sure your machine has installed following dependencies:
 
-- [Postgress](//www.postgresql.org/)
 - [Node.js](//nodejs.org/)
 - [YARN](https://yarnpkg.com/en/docs/install#mac-stable)
+- [Postgress](//www.postgresql.org/) Mac user can install postgress using [Brew Package Manager](//brew.sh/), using the following commands:
+  ```bash
+  brew install postgresql        #Installs postgress
+  brew services start postgresql #Starts postgress service
+  brew services stop postgresql  #Stops postgress service
+  ```
 
 ## Installation
 
